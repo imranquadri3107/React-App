@@ -7,9 +7,9 @@ class App extends Component {
 
   state = {
     persons: [
-      { name: 'Imran', age: 24 },
-      { name: 'Bushra', age: 23 },
-      { name: 'Imbush', age: 47 }
+      {id: 'ad', name: 'Imran', age: 24 },
+      {id: 'ds', name: 'Bushra', age: 23 },
+      {id: 'er', name: 'Imbush', age: 47 }
     ],
     crush: 'how are you',
     showPerson: false
@@ -17,20 +17,32 @@ class App extends Component {
 
   deleteHandler=(personIndex)=>{
 
-    const persons = this.state.persons;
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
 
   }
 
-  onChangeHandler = (event) => {
-    this.setState({
-      persons: [
-        { name: 'Imran', age: 24 },
-        { name: event.target.value, age: 23 },
-        { name: 'Imbush', age: 47 }
-      ]
-    })
+  onChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person ={
+     ...this.state.persons[personIndex]
+    };
+
+   // const person = Object.assign({}, this.state.person[personIndex])
+    
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex]=person;
+
+    this.setState({persons: persons});
+    
+    this.setState({ persons: persons })
   }
 
   toggleHandler = () => {
@@ -57,7 +69,9 @@ class App extends Component {
             return <Person 
             click={this.deleteHandler}
             name={person.name} 
-            age={person.age}/>
+            age={person.age}
+            key={person.id}
+            changed={(event)=>this.onChangeHandler(event, person.id)}/>
           })}
             
           </div>
