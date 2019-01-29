@@ -33,7 +33,7 @@ class App extends Component {
      ...this.state.persons[personIndex]
     };
 
-   // const person = Object.assign({}, this.state.person[personIndex])
+   
     
     person.name = event.target.value;
 
