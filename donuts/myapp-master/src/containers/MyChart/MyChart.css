@@ -1,0 +1,24 @@
+.MyChart::after {
+    content: '';
+    display: table;
+    clear: both; } 
+  
+  .MyChart__container--fourColumn {
+    float: left;
+    width: auto; 
+    height:10%;
+    margin-top:5%;
+    margin-left: 10px;
+    margin-right: 5px; 
+    
+}
+
+   
+    .MyChart .MyChart__container .MyChart__container--fourColumn::after {
+      content: '';
+      display: table;
+      clear: both; } 
+       
+     .MyChart .MyChart__container .MyChart__container--fourColumn:last-child {
+      margin-right: 0%; }
+   

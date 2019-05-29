@@ -1,0 +1,30 @@
+  
+   .Card{
+       border:1px solid black;
+       width: 20px;
+   }
+    
+    .header {
+        background: lightgrey;
+        font-size: 16px;
+        height: 30px;
+        padding: 10px; 
+        text-align: center;
+    }
+    .Card.Content{
+        float:auto;
+    }
+    .test{
+        padding:10px;
+    }
+            
+     .footer{
+          border: 1px solid grey;   
+     }
+      
+      
+      /* .footerTitle {
+        float: left; } */
+      
+      .footerValue {
+        float: right; }  
